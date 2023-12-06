@@ -1,0 +1,132 @@
+﻿<Window x:Class="Now_You_See_Me.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Now_You_See_Me"
+        mc:Ignorable="d"
+        Icon="lock.png"
+        WindowStyle="None"
+        Title="MainWindow" Background="#121212" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="MacOSCloseButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="#FF605C" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Margin" Value="12 4 0 0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E52935" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#E52935" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MacOSMinimizeButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="#FFBD44" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Margin" Value="32 4 0 0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFE001" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFE001" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#282828" />
+            <Setter Property="Background" Value="#B3B3B3" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="10 5" />
+            <Setter Property="FontFamily" Value="sans serif" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#181818" />
+                    <Setter Property="Foreground" Value="#B3B3B3" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#181818" />
+                    <Setter Property="Foreground" Value="#B3B3B3" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+       
+    </Window.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource MacOSCloseButtonStyle}" Click="CloseButton_Click" />
+        
+        <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource MacOSMinimizeButtonStyle}" Click="HideButton_Click" />
+
+        <Button Grid.Column="0" Grid.Row="1" Height="50" VerticalAlignment="Top" Margin="0 20 0 0" Width="250" Style="{StaticResource RoundedButtonStyle}" x:Name="ButtHide" Content="Hide Files" Click="ButtHide_Click" />
+
+        <Button Grid.Column="0" Grid.Row="1" Height="50" VerticalAlignment="Top" Margin="0 80 0 0" Width="250" Style="{StaticResource RoundedButtonStyle}" x:Name="ButtUnHideFolder" Content="Hide Folder" Click="ButtUnHide_Click"  />
+
+        <Button Grid.Column="0" Grid.Row="2" Height="50" VerticalAlignment="Top" Margin="0 70 0 0" Width="250" Style="{StaticResource RoundedButtonStyle}" x:Name="ButtShowFolder" Content="Show Folder" Click="ButtShowFolder_Click"  />
+
+
+        <Button Grid.Column="0" Grid.Row="2" Height="50" VerticalAlignment="Top" Margin="0,10,0,0" Width="250" Style="{StaticResource RoundedButtonStyle}" x:Name="ButtShowFile" Content="Show Files" Click="ButtShowFile_Click"  />
+        <TextBlock Grid.Column="0" Grid.Row="2" Height="50" VerticalAlignment="Bottom" Background="#151212" x:Name="currT" FontSize="20" Width="200" HorizontalAlignment="Right" Foreground="#B3B3B3B3"></TextBlock>
+
+    </Grid>
+</Window>
